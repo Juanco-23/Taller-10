@@ -1,0 +1,40 @@
+<div class="container">
+<div class="row">
+    <div class="col-12 my-3 mx-auto">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Estado</th>
+            <th scope="col">Fecha de conteos</th>
+            <th scope="col">Total de casos</th>
+            <th scope="col">Casos confrimados</th>
+            <th scope="col">Casos Nuevos</th>
+            <th scope="col">Total de Fallecidos</th>
+            <th scope="col">Nuevos Fallecidos</th>
+            <th scope="col">Creado en</th>
+            <th scope="col">Consenteimiento de Casos</th>
+            <th scope="col">Consenteimiento de Muertes</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let item of datosApi| paginate: { itemsPerPage: 20, currentPage: pages }; let index = index  ">
+          <tr>
+            <td>{{index+1}}</td>
+            <td>{{item.state}}</td>
+            <td>{{item.submission_date}}</td>
+            <td>{{item.tot_cases}}</td>
+            <td>{{item.conf_cases}}</td>
+            <td>{{item.new_case}}</td>
+            <td>{{item.tot_death}}</td>
+            <td>{{item.new_death}}</td>
+            <td>{{item.created_at}}</td>
+            <td>{{item.consent_cases}}</td>
+            <td>{{item.consent_deaths}}</td>
+          </tr>
+        </tbody>
+        <h1>Total de registros: {{contador}}</h1>
+      </table>
+    </div>
+  </div>
+  <pagination-controls (pageChange)="pages = $event"></pagination-controls>
+</div>

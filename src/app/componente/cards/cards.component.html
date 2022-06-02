@@ -1,0 +1,23 @@
+<div class="continer">
+    <div class="row">
+        <div class="col-3 ms-5 m-3 p-6" *ngFor="let item of datosApi | paginate: { itemsPerPage: 6, currentPage: pages }">
+            <div class="card text-white bg-dark" style="width: 26rem;">
+                <img src="/assets/img/virus.webp" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Estado de: {{item.state}}</h5>
+                    <p class="card-text">Fecha de conteos<br>{{item.submission_date}}</p>
+                    <p class="card-text">Total de casos<br>{{item.tot_cases}}</p>
+                    <p class="card-text ">Casos confrimados<br>{{item.conf_cases}}</p>
+                    <p class="card-text">Casos Nuevos<br>{{item.new_case}}</p>
+                    <p class="card-text">Total de Fallecidos<br>{{item.tot_death}}</p>
+                    <p class="card-text">Nuevos Fallecidos<br>{{item.new_death}}</p>
+                    <p class="card-text">Creado en<br>{{item.created_at}}</p>
+                    <p class="card-text">Consenteimiento de Casos<br>{{item.consent_cases}}</p>
+                    <p class="card-text">Consenteimiento de Muertes<br>{{item.consent_deaths}}</p>
+    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<pagination-controls (pageChange)="pages = $event"></pagination-controls>
